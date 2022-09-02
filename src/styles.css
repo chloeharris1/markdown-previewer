@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+.container {
+    height: 100vh;
+    min-width: 95vw;
+}
+
+.row {
+    flex-wrap: wrap;
+}
+
+.row>[class*='col-'] {
+    flex-grow: 1;
+}
+
+#preview {
+    border: 3px solid black;
+}
