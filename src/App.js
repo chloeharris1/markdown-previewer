@@ -1,17 +1,61 @@
 import React from 'react'
 import './styles.css';
 // Import Marked library
-// import marked from 'marked';
+import { marked } from 'marked';
 
-const placeholder = `#Heading (H1)
-## Sub-heading (H2)
-### Another deeper heading (H3)
+// Allows line breaks with return button
+marked.setOptions({
+  breaks: true
+});
+
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    // Initialize state
+    this.state = {
+      markdown: placeholder
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e){
+    this.setState = ({
+      markdown: e.target.value
+      });
+  }
+
+  createMarkup(){
+    return {__html: marked(this.state.markdown, {sanitize: true})};
+  }
+
+  render(){
+    return (
+      <div className='container'>
+        <h1 className='text-center'>Markdown Previewer</h1>
+        <div className='row d-flex form-outline'>
+          <textarea id="editor" className='input col-md-6 col-xs-12 w-50 form-control' 
+          value={this.state.markdown} 
+          onChange={this.handleChange}>
+          </textarea>
+          
+          <div id="preview" className='col-md-6 col-xs-12 text-left' dangerouslySetInnerHTML={this.createMarkup()}>
+
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const placeholder = `# Heading
+## Sub-heading
+### Another heading 
 
 Text Attributes:
 **bold text**
 *italicized text*
 ~~strikethrough~~
-> blockquote
 
 Ordered List:
 1. First Item
@@ -38,52 +82,17 @@ Multi-line Code Block:
 Horizontal Rule
 ___
 
-Link: [title](https://www.example.com)
-
-Image: ![alt text](image.jpg)
+[Link](https://www.github.com/chloeharris1)
 
 Table: 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
+Syntax | Description 
+----------- | -----------
+Header | Title
+Paragraph | Text
 
-Task List:
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-
-Highlight: I need to highlight these ==very important words==.
-
-Emoji: That is so funny! :joy:
+Image: ![Image]('../public/logo192.png')
 
 `;
-
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    // Initialize state
-    this.state = {
-      markdown: placeholder,
-    };
-  }
-  render(){
-    return (
-      <div className='container'>
-        <div className='row d-flex justify-content-center text-center'>
-          <h1>Markdown Previewer</h1>
-          <textarea id="editor" className='col-md-6 col-xs-12' value={this.state.markdown}>
-
-          </textarea>
-          <div id="preview" className='col-md-6 col-xs-12'>
-
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
 
 
 export default App;

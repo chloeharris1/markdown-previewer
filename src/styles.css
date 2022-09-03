@@ -1,22 +1,48 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+}
+
+body {
+    background-image: url('../public/gradienta--gmycsIe7FU-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
+    margin-top: 1rem;
     height: 100vh;
-    min-width: 95vw;
 }
 
 .row {
     flex-wrap: wrap;
+    height: 90vh;
 }
 
 .row>[class*='col-'] {
     flex-grow: 1;
+    flex-direction: column;
+}
+
+#editor,
+#preview {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #preview {
-    border: 3px solid black;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 2px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
 }
