@@ -29,10 +29,11 @@ body {
 #preview {
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: scroll;
 }
 
 #preview {
-    border: 1px solid black;
+    border: none;
     border-radius: 6px;
 }
 

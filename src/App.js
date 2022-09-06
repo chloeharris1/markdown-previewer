@@ -8,46 +8,6 @@ marked.setOptions({
   breaks: true
 });
 
-
-class App extends React.Component {
-  constructor(props){
-    super(props);
-    // Initialize state
-    this.state = {
-      markdown: placeholder
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e){
-    this.setState = ({
-      markdown: e.target.value
-      });
-  }
-
-  createMarkup(){
-    return {__html: marked(this.state.markdown, {sanitize: true})};
-  }
-
-  render(){
-    return (
-      <div className='container'>
-        <h1 className='text-center'>Markdown Previewer</h1>
-        <div className='row d-flex form-outline'>
-          <textarea id="editor" className='input col-md-6 col-xs-12 w-50 form-control' 
-          value={this.state.markdown} 
-          onChange={this.handleChange}>
-          </textarea>
-          
-          <div id="preview" className='col-md-6 col-xs-12 text-left' dangerouslySetInnerHTML={this.createMarkup()}>
-
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
 const placeholder = `# Heading
 ## Sub-heading
 ### Another heading 
@@ -73,9 +33,9 @@ Code:
 Multi-line Code Block:
 \`\`\`
 {
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
+  "firstName": "Art",
+  "lastName": "Vandelay",
+  "age": 30
 }
 \`\`\`
 
@@ -90,9 +50,65 @@ Syntax | Description
 Header | Title
 Paragraph | Text
 
-Image: ![Image]('../public/logo192.png')
-
+Image: 
+![Beach](https://th.bing.com/th/id/OIP.YiXYoIBUMD1VrMRgzFeGbgAAAA?pid=ImgDet&rs=1)
 `;
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    // Initialize state
+    this.state = {
+      markdown: placeholder
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  // This method will be called every time the value of text area is changed and update the state
+  updateMarkdown(markdown) {
+    this.setState({
+      markdown
+    });
+  }
+  // Event handler that calls updateMarkdown, assigning the input of textarea to the state markdown property
+  handleChange =(e) => {
+   this.updateMarkdown(e.target.value);
+  }
+
+
+  render(){
+    return (
+      <div className='container'>
+        <h1 className='text-center'>Markdown Previewer</h1>
+        <div className='row d-flex form-outline'>
+          <Editor markdown={this.state.markdown} onChange={this.handleChange}/>
+          <Preview markdown={this.state.markdown}/>
+        </div>
+      </div>
+    );
+  }
+}
+// Editor component
+const Editor = (props) => {
+  return (
+    <textarea 
+      id="editor"
+      type="text"
+      className='input col-md-6 col-xs-12 w-50 form-control'
+      value={props.markdown} 
+      onChange={props.onChange}>
+      </textarea>
+  );
+};
+// Preview component
+const Preview = (props) => {
+  return (
+    <div 
+    id="preview" 
+    className='col-md-6 col-xs-12 text-left' 
+    dangerouslySetInnerHTML={{__html: marked(props.markdown)}}></div>
+  );
+};
+
 
 
 export default App;
