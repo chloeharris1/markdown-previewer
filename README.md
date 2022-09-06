@@ -5,7 +5,7 @@
 
 ## Description
 
-A React Markdown Previewer app which contains a textarea for Markdown input and a preview tab where the converted text will appear.
+A responsive **React Markdown Previewer** app which contains a textarea for Markdown input and a preview tab where the converted text will appear.
 
 A FreeCodeCamp Front End Development Libraries project, with the objective to fulfill the user stories and get all of the tests to pass.
 
@@ -18,11 +18,11 @@ A FreeCodeCamp Front End Development Libraries project, with the objective to fu
 
 ## Dependencies 
 
-**Marked** - Markdown Parser 
+[Marked](https://marked.js.org/) - Markdown Parser 
 
 ## Snapshot 
 
-
+![screenshot](public\Screenshot.png)
 
 ## Link 
 
