@@ -10,14 +10,8 @@ body {
     background-size: cover;
 }
 
-.container {
-    margin-top: 1rem;
-    height: 100vh;
-}
-
 .row {
     flex-wrap: wrap;
-    height: 90vh;
 }
 
 .row>[class*='col-'] {
@@ -25,25 +19,72 @@ body {
     flex-direction: column;
 }
 
+textarea:focus {
+    outline: 2px solid #48286b;
+}
+
 #editor,
 #preview {
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    overflow: scroll;
+    max-height: 90vh;
+    border: none;
+    border-radius: 6px;
+    overflow-y: scroll;
 }
 
-#preview {
-    border: none;
+@media only screen and (max-width: 768px) {
+    #editor,
+    #preview {
+        height: 50vh;
+    }
+}
+
+#editor {
+    min-height: 90vh;
+}
+
+@media only screen and (max-width: 768px) {
+    #editor {
+        min-height: 50vh;
+    }
+}
+
+
+/* #preview {
+    overflow-y: scroll;
+} */
+
+
+/* Scrollbar Styles */
+
+
+/* width */
+
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+.scrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
     border-radius: 6px;
 }
 
-table {
-    border-collapse: collapse;
+
+/* Handle */
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
 }
 
-td,
-th {
-    border: 2px solid black;
-    padding-left: 5px;
-    padding-right: 5px;
+
+/* Handle on hover */
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: pointer;
 }

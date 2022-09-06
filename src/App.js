@@ -78,8 +78,8 @@ class App extends React.Component {
   render(){
     return (
       <div className='container'>
-        <h1 className='text-center'>Markdown Previewer</h1>
         <div className='row d-flex form-outline'>
+        <h1 className='text-center'>Markdown Previewer</h1>
           <Editor markdown={this.state.markdown} onChange={this.handleChange}/>
           <Preview markdown={this.state.markdown}/>
         </div>
@@ -93,7 +93,7 @@ const Editor = (props) => {
     <textarea 
       id="editor"
       type="text"
-      className='input col-md-6 col-xs-12 w-50 form-control'
+      className='col-md-6 col-xs-12 w-50 scrollbar'
       value={props.markdown} 
       onChange={props.onChange}>
       </textarea>
@@ -104,7 +104,7 @@ const Preview = (props) => {
   return (
     <div 
     id="preview" 
-    className='col-md-6 col-xs-12 text-left' 
+    className='col-md-6 col-xs-12 text-left scrollbar' 
     dangerouslySetInnerHTML={{__html: marked(props.markdown)}}></div>
   );
 };
