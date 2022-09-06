@@ -54,7 +54,7 @@ Syntax | Description
 ----------- | -----------
 Header | Title
 Paragraph | Text
-
+<br>
 Image: 
 ![Beach](https://th.bing.com/th/id/OIP.YiXYoIBUMD1VrMRgzFeGbgAAAA?pid=ImgDet&rs=1)
 `;
