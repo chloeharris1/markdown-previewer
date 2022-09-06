@@ -22,7 +22,7 @@ A FreeCodeCamp Front End Development Libraries project, with the objective to fu
 
 ## Snapshot 
 
-![screenshot](public\Screenshot.png)
+![screenshot](./public/Screenshot.png)
 
 ## Link 
 
